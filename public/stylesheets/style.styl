@@ -26,7 +26,11 @@ body-font = "Courier New", Monaco, monospace
 /* CONSTANTS */
 /*************/
 
-picture-link-size = 11.5em
+radius = .5em
+
+border-length = 1em
+margin-length = 1em
+side-length = 18em
 
 /*************/
 /* FUNCTIONS */
@@ -39,7 +43,7 @@ background-clip(type)
 
 linear-gradient-top(color1, color2) {
   background: linear-gradient(top, color1, color2);
-	background: -moz-linear-gradient(top, color1, color2);
+  background: -moz-linear-gradient(top, color1, color2);
   background: -webkit-linear-gradient(top, color1, color2);
   background: -o-linear-gradient(top, color1, color2);
 }
@@ -47,16 +51,6 @@ linear-gradient-top(color1, color2) {
 /************/
 /* ELEMENTS */
 /************/
-
-table
-	tbody
-		tr
-			td
-				padding 1em
-				&:first-of-type
-					padding-left 0
-				&:last-of-type
-					padding-right 0
 
 body
   font-family body-font
@@ -68,97 +62,94 @@ body
 
 .button
   background-color brown
-  border-radius .5em
+  border-radius radius
   box-shadow dark-gray 1px 1px 3px 
   color yellow
-  display inline-block
   font-family header-font
   linear-gradient-top brown dark-brown
-  margin 2.5%
-  padding 2.5%
-  width 25%
+  margin margin-length auto
+  padding margin-length
+  //width 8em
   &:hover
     background-color orange 
     linear-gradient-top(orange, dark-orange)
-  
-.col
-  float left
-
-.content
-	margin 0 auto
-	width 50%
 
 .hidden
-	display none
+  display none
 
 .link
-	border 1em yellow solid
-	border-radius .5em
-	box-shadow gray 0 0 20px
-	height picture-link-size
-	width picture-link-size
+  border 1em yellow solid
+  border-radius radius
+  box-shadow gray 0 0 20px
+  height side-length
+  width side-length
 
 .link-title
-	color dark-gray
-	font-weight bolder
-	font-size 1.25em
-	margin-top 4em
-	word-wrap break-word
+  color dark-gray
+  font-weight bolder
+  font-size 1.75em
+  margin-top margin-length*8
+  word-wrap break-word
 
 .pdf
-	background-color white
-	&:hover
-		background-color light-gray
+  background-color white
+  &:hover
+    background-color light-gray
 
 .url
-	background-color white
-	position absolute
+  background-color white
+  position absolute
 
-/***********/
+/*******/
 /* IDS */
-/***********/
+/*******/
 
 #buttons
-	width 100%
-
-#code-button
-	margin-left 0
-
-#connect-button
-	margin-right 0
+	margin 2*margin-length 0
 
 #code-content
 #craft-content
-	background-color white
-	border 1em yellow solid
-	border-radius .5em
-	box-shadow gray 0 0 20px
-	margin auto
-	width 50%
-	p
-		font-weight: bolder
+  background-color white
+  p
+    font-size 2em
+    font-weight bolder
 
-#content
-  margin 2em auto
+#code-content
+#connect-content
+#craft-content
+	margin-left side-length + margin-length*4
+	margin-top margin-length
 
 #header
   background-color white
-  border 1em solid blue
-  border-radius 1em
+  border border-length solid blue
+  border-radius radius
+  bottom margin-length
   box-shadow 0px 0px 20px gray
-  display inline-block
-  margin-bottom 1em
-  width 50%
+  position absolute
+  margin-left margin-length
+  min-height 40em
+  text-align center
+  top margin-length*2
+  width side-length
 
 #header-content
-  margin 1em 1.25em
+  margin 1em
 
-#lily-container
-  text-align right
-  width 25%
+#Lily
+	font-size 2em
 
 #lily-img
-  width 95%
+  width 100%
+
+#links
+  tbody
+    tr
+      td
+        padding 1em
+      &:first-of-type
+      	td
+      		padding-top 0
 
 #name
   background-clip(text)
@@ -170,7 +161,3 @@ body
   margin-bottom .1em
   text-shadow rgba(255, 255, 255, .5) 0px 2px 2px
   width 100%
-
-#name-and-buttons
-  margin-top 1.25em
-  width 75%

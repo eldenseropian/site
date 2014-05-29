@@ -6,7 +6,7 @@ app.configure(function() {
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.json());
-	app.use(express.urlencoded());
+  app.use(express.urlencoded());
   app.use(express.methodOverride());
   app.use(require('stylus').middleware({src: __dirname + '/public'}));
   app.use(app.router);
@@ -26,8 +26,8 @@ app.get('/', function(req, res) {
 });
 
 app.post('/', function(req, res) {
-	console.log('posted');
-	res.redirect('/pdfs/Seropian Resume.pdf');
+  console.log('posted');
+  res.redirect('/pdfs/Seropian Resume.pdf');
 });
 
 var listening_app = app.listen(3000);
