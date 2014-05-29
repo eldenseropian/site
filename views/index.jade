@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js")
+    script(src="/js/control.js")
+  body(background='/images/background.png' bgproperties='fixed')
+    div#content
+      include header
+      include code
+      include craft
+      include connect

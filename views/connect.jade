@@ -1,0 +1,25 @@
+mixin picture-link(host, url)
+  div(id='#{host}')
+    div.hidden.link.url
+      p.link-title=url
+    img(src='/images/#{host}.jpg', alt=':(').link.image
+
+mixin pdf-link(title, filename)
+  div(id='#{title.toLowerCase()}')
+    div.link.pdf
+      p.link-title=title
+  
+block connect
+  div#connect-content.hidden.content
+    table
+      tbody
+        tr
+          td
+            +picture-link('github', 'github.com/ lilyseropian')
+          td
+            +picture-link('linkedin', 'linkedin.com/ in/lilyseropian')
+          td
+            +pdf-link('Resume')
+        tr
+          td
+            +pdf-link('CV')
