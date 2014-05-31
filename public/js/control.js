@@ -12,35 +12,47 @@ $(document).ready(function() {
     });
   });
   
-  $('#github').click(function(e) {
-    window.open('http://www.github.com/lilyseropian');
-  });
+  $('#github').click(openLink('http://www.github.com/lilyseropian'));
+  $('#github').hover(showLinkText('#github'), hideLinkText('#github'));
   
-  $('#github').hover(function(e) {
-    $('#github>div').removeClass('hidden');
-    $('#github>img').css({'opacity': .25});
-  }, function(e) {
-    $('#github>div').addClass('hidden');
-    $('#github>img').css({'opacity': 1});
-  });
+  $('#linkedin').click(openLink('http://www.linkedin.com/in/lilyseropian'));
+  $('#linkedin').hover(showLinkText('#linkedin'), hideLinkText('#linkedin'));
   
-  $('#linkedin').click(function(e) {
-    window.open('http://www.linkedin.com/in/lilyseropian');
-  });
+  $('#resume').click(openLink('pdfs/Seropian Resume.pdf'));
   
-  $('#linkedin').hover(function(e) {
-    $('#linkedin>div').removeClass('hidden');
-    $('#linkedin>img').css({'opacity': .25});
-  }, function(e) {
-    $('#linkedin>div').addClass('hidden');
-    $('#linkedin>img').css({'opacity': 1});
-  });
-  
-  $('#resume').click(function(e) {
-    window.open('pdfs/Seropian Resume.pdf');
-  });
-  
-  $('#cv').click(function(e) {
-  window.open('pdfs/Seropian CV.pdf');
-  });
+  $('#cv').click(openLink('pdfs/Seropian CV.pdf'));
 });
+
+/**
+ * Open a link in the browser
+ * @param {string} url the URL to open. May be external or statically hosted file.
+ */
+function openLink(url) {
+	return function(e) {
+		window.open(url);
+	}
+}
+
+/**
+ * Show a link overlaid on an image
+ * @param {string} id the id of the .link div element to show the link for. It must have
+ *     a div child (the link overlay) and an img child (the background).
+ */
+function showLinkText(id) {
+	return function(e) {
+		$(id + '>div').removeClass('hidden');
+		$(id + '>img').css({'opacity': .25});
+	};
+}
+
+/**
+ * Hide a link overlaid on an image
+ * @param {string} id the id of the .link div element to hide the link for. It must have
+ *     a div child (the link overlay) and an img child (the background).
+ */
+function hideLinkText(id) {
+	return function(e) {
+		$(id + '>div').addClass('hidden');
+		$(id + '>img').css({'opacity': 1});
+	};
+}
