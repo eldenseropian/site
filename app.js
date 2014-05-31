@@ -1,6 +1,7 @@
 var express = require('express');
 
 var app = module.exports = express();
+server = require('http').createServer(app);
 
 app.configure(function() {
   app.set('views', __dirname + '/views');
@@ -30,7 +31,8 @@ app.post('/', function(req, res) {
   res.redirect('/pdfs/Seropian Resume.pdf');
 });
 
-var listening_app = app.listen(3000);
+var port_number = server.listen(process.env.PORT || 3000);
+var listening_app = app.listen(port_number);
 
 console.log('Express server listening on port %d in %s mode',
     listening_app.address().port, app.settings.env);
