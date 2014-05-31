@@ -22,8 +22,15 @@ $(document).ready(function() {
   $('#linkedin').hover(showLinkText('#linkedin'), hideLinkText('#linkedin'));
   
   $('#resume').click(openLink('pdfs/Seropian Resume.pdf'));
+  $('#resume').hover(showLinkText('#resume'), hideLinkText('#resume'));
   
   $('#cv').click(openLink('pdfs/Seropian CV.pdf'));
+  $('#cv').hover(showLinkText('#cv'), hideLinkText('#cv'));
+  
+  $('#email').click(function(e) {
+  	window.open("mailto:lilyseropian@gmail.com")
+  });
+  $('#email').hover(showLinkText('#email'), hideLinkText('#email'));
 });
 
 /**
