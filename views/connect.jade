@@ -5,7 +5,7 @@ mixin picture-link(host, url)
     img(src='/images/#{host}.jpg', alt=':(').link.image
 
 mixin pdf-link(title, text)
-  div(id='#{title.toLowerCase()}')
+  div(id='#{title}')
     div.hidden.link.url
       p.link-title=text
     img(src='/images/#{title}.jpg', alt=':(').link.image
@@ -20,9 +20,9 @@ block connect
           td
             +picture-link('linkedin', 'linkedin.com/ in/lilyseropian')
           td
-            +pdf-link('Resume', 'Resume')
+            +pdf-link('resume', 'Resume')
         tr
           td
-            +pdf-link('CV', 'CV')
+            +pdf-link('cv', 'CV')
           td
             +pdf-link('email', 'lilyseropian@ gmail.com')
