@@ -62,17 +62,17 @@ body
 
 .button
   background-color brown
-  border-radius radius
+  border-radius .25em
   box-shadow dark-gray 1px 1px 3px 
   color yellow
   font-family header-font
+  font-size 1.5em
   linear-gradient-top brown dark-brown
   margin margin-length auto
-  padding margin-length
-  //width 8em
+  padding .375em
   &:hover
     background-color orange 
-    linear-gradient-top(orange, dark-orange)
+    linear-gradient-top orange dark-orange
 
 .hidden
   display none
@@ -95,6 +95,11 @@ body
   background-color white
   &:hover
     background-color light-gray
+
+.selected
+	color orange
+	&:hover
+    color brown
 
 .url
   background-color white

@@ -1,14 +1,17 @@
 $(document).ready(function() {
   var tabs = ['code', 'craft', 'connect'];
   var displayed = tabs[2];
+  $('#' + displayed + '-button').addClass('selected');
   $('#' + displayed + '-content').fadeIn('slow');
 
   $('.button').each(function(index) {
     $(this).click(function(e) {
+    	$('#' + displayed + '-button').removeClass('selected');
       $('#' + displayed + '-content').fadeOut('fast', function() {
         $('#' + tabs[index] + '-content').fadeIn('slow');
       });     
       displayed = tabs[index];
+      $('#' + displayed + '-button').addClass('selected');
     });
   });
   

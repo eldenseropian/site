@@ -22,16 +22,17 @@ body {
 /***********/
 .button {
   background-color: #5b2505;
-  border-radius: 0.5em;
+  border-radius: 0.25em;
   box-shadow: #505050 1px 1px 3px;
   color: #ffe850;
   font-family: "Courier New", Monaco, monospace;
+  font-size: 1.5em;
   background: linear-gradient(top, #5b2505, #522104);
   background: -moz-linear-gradient(top, #5b2505, #522104);
   background: -webkit-linear-gradient(top, #5b2505, #522104);
   background: -o-linear-gradient(top, #5b2505, #522104);
   margin: 1em auto;
-  padding: 1em;
+  padding: 0.375em;
 }
 .button:hover {
   background-color: #ff6833;
@@ -62,6 +63,12 @@ body {
 }
 .pdf:hover {
   background-color: #f0f0f0;
+}
+.selected {
+  color: #ff6833;
+}
+.selected:hover {
+  color: #5b2505;
 }
 .url {
   background-color: #fff;
