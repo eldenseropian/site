@@ -1,4 +1,4 @@
 site
 ====
 
-Personal website, built with node.
+Personal website.
