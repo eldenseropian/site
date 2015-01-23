@@ -1,68 +1,58 @@
 $(document).ready(function() {
-  var tabs = ['code', 'craft', 'connect'];
-  var displayed = tabs[2];
-  $('#' + displayed + '-button').addClass('selected');
-  $('#' + displayed + '-content').fadeIn('slow');
+    codeCard('#shirk', 'Shirk', 'Group Project', 'October 2014',
+      '../public/images/shirk.jpg', 'Learn More', 'This academic project was implemented by Andre Aboulian, Tricia Divita, and Lily Seropian for 6.170 Software Studio.',
+      'http://shirk-aandre.rhcloud.com', 'https://github.com/shirk-team/shirk');
 
-  $('.button').each(function(index) {
-    $(this).click(function(e) {
-    	$('#' + displayed + '-button').removeClass('selected');
-      $('#' + displayed + '-content').fadeOut('fast', function() {
-        $('#' + tabs[index] + '-content').fadeIn('slow');
-      });     
-      displayed = tabs[index];
-      $('#' + displayed + '-button').addClass('selected');
+    linkCard('#github', 'http://www.github.com/lilyseropian', 'github.com/lilyseropian', '../public/images/github.jpg', 'Connect');
+    linkCard('#linkedin', 'http://www.linkedin.com/in/lilyseropian', 'linkedin.com/in/lilyseropian', '../public/images/linkedin.jpg', 'Connect');
+    linkCard('#email', 'mailto:lilyseropian@gmail.com', 'lilyseropian@gmail.com', '../public/images/email.jpg', 'Connect');
+    linkCard('#resume', '../public/pdfs/Seropian Resume.pdf', 'Resume', '../public/images/resume.jpg', 'Connect');
+    linkCard('#cv', '../public/pdfs/Seropian CV.pdf', 'CV', '../public/images/cv.jpg', 'Connect');
+
+    $('.tabular.menu .item').tab();
+    $('.cards .image').dimmer({
+        on: 'hover'
     });
-  });
-  
-  $('#github').click(openLink('http://www.github.com/lilyseropian'));
-  $('#github').hover(showLinkText('#github'), hideLinkText('#github'));
-  
-  $('#linkedin').click(openLink('http://www.linkedin.com/in/lilyseropian'));
-  $('#linkedin').hover(showLinkText('#linkedin'), hideLinkText('#linkedin'));
-  
-  $('#resume').click(openLink('pdfs/Seropian Resume.pdf'));
-  $('#resume').hover(showLinkText('#resume'), hideLinkText('#resume'));
-  
-  $('#cv').click(openLink('pdfs/Seropian CV.pdf'));
-  $('#cv').hover(showLinkText('#cv'), hideLinkText('#cv'));
-  
-  $('#email').click(function(e) {
-  	window.open("mailto:lilyseropian@gmail.com")
-  });
-  $('#email').hover(showLinkText('#email'), hideLinkText('#email'));
+
 });
 
-/**
- * Open a link in the browser
- * @param {string} url the URL to open. May be external or statically hosted file.
- */
-function openLink(url) {
-	return function(e) {
-		window.open(url);
-	}
-}
+function linkCard(selector, link, linkDisplay, imagePath, buttonText) {
+    $(selector).html(
+      '<div class="dimmable image">' +
+        '<div class="ui dimmer">' +
+          '<div class="content">' +
+            '<div class="center">' +
+              '<a class="ui inverted button" href="' + link + '">' + buttonText + '</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<img src="' + imagePath + '" alt=":("/>' +
+      '</div>' +
+      '<div class="content">' +
+        '<a class="header" href="' + link + '">' + linkDisplay + '</a>' +
+      '</div>'
+    );
+};
 
-/**
- * Show a link overlaid on an image
- * @param {string} id the id of the .link div element to show the link for. It must have
- *     a div child (the link overlay) and an img child (the background).
- */
-function showLinkText(id) {
-	return function(e) {
-		$(id + '>div').removeClass('hidden');
-		$(id + '>img').css({'opacity': .25});
-	};
-}
-
-/**
- * Hide a link overlaid on an image
- * @param {string} id the id of the .link div element to hide the link for. It must have
- *     a div child (the link overlay) and an img child (the background).
- */
-function hideLinkText(id) {
-	return function(e) {
-		$(id + '>div').addClass('hidden');
-		$(id + '>img').css({'opacity': 1});
-	};
+function codeCard(selector, projectTitle, projectType, projectDate, imagePath, buttonText, projectDescription, projectSiteLink, projectCodeLink) {
+    $(selector).html(
+      '<div class="dimmable image">' +
+        '<div class="ui dimmer">' +
+          '<div class="content">' +
+            '<div class="center">' +
+              '<a class="ui inverted button" href="' + projectCodeLink + '">' + buttonText + '</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<img src="' + imagePath + '" alt=":("/>' +
+      '</div>' +
+      '<div class="content">' +
+        '<a class="header" href="' + projectSiteLink + '">' + projectTitle + '</a>' +
+        '<div class="meta">' +
+          '<span>' + projectType + '</span>' +
+        '</div>' +
+        '<div class="description">' + projectDescription + '</div>' +
+      '</div>' + 
+      '<div class="extra content">' + projectDate + '</div>'
+    );
 }
