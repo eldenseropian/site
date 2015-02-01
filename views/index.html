@@ -3,13 +3,15 @@
   <head>
     <title>Lily Seropian: Home</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../public/js/control.js"></script>
     <link rel="stylesheet" type="text/css" href="../public/vendor/semantic.min.css">
     <script src="../public/vendor/semantic.min.js"></script>
+    <script src="../public/vendor/angular.js"></script>
+    <script src="../public/js/control.js"></script>
+    <script src="../public/js/data.js"></script>
     <!-- <link rel="shortcut icon" href="../public/images/lily.jpg" /> -->
   </head>
-  <body>
-    <div>
+  <body ng-app="Site">
+    <div ng-controller="DataController">
       <div class="ui menu">
         <div class="item">Lily Seropian</div>
        <!--  <div class="item">
@@ -17,37 +19,77 @@
             <img src="../public/images/lily.jpg"/>
           </div>
         </div> -->
-      <div class="ui menu tabular right">
-        <a class="item active" data-tab="code">Code</a>
-        <a class="item" data-tab="craft">Craft</a>
-        <a class="item" data-tab="connect">Connect</a>
-      </div>
+        <div class="ui menu tabular right">
+          <a class="item active" data-tab="code">Code</a>
+          <a class="item" data-tab="craft">Craft</a>
+          <a class="item" data-tab="connect">Connect</a>
+        </div>
       </div>
 
       <div class="ui active tab segment" data-tab="code">
         <div class="ui cards">
-          <div id="zhift" class="card"></div>
-          <div id="shirk" class="card"></div>
-          <div id="tag" class="card"></div>
+          <div class="card" ng-repeat="card in codeCards">
+            <div class="dimmable image">
+              <div class="ui dimmer">
+                <div class="content">
+                  <div class="center">
+                    <a class="ui inverted button" href="{{card.learnMoreUrl}}">Learn More</a>
+                  </div>
+                </div>
+              </div>
+              <img ng-src="{{card.image}}" alt=":("/>
+            </div>
+            <div class="content">
+              <a class="header" href="{{card.projectUrl}}">{{card.name}}</a>
+              <div class="meta">
+                <span>{{card.tagline}}</span>
+              </div>
+              <div class="description">{{card.description}}</div>
+            </div> 
+            <div class="extra content">{{card.date}}</div>
+          </div>
         </div>
       </div>
 
       <div class="ui tab segment" data-tab="craft">
-        <div class ="ui cards">
-          <div id="lorenz" class="card"></div>
+        <div class="ui cards">
+          <div class="card" ng-repeat="card in craftCards">
+            <div class="dimmable image">
+              <div class="ui dimmer">
+                <div class="content">
+                  <div class="center">
+                    <a class="ui inverted button" href="{{card.url}}">See More</a>
+                  </div>
+                </div>
+              </div>
+              <img ng-src="{{card.image}}" alt=":("/>
+            </div>
+            <div class="content">
+              <a class="header" href="{{card.url}}">{{card.name}}</a>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="ui tab segment" data-tab="connect">
         <div class="ui cards">
-          <div id="github" class="card"></div>
-          <div id="linkedin" class="card"></div>
-          <div id="email" class="card"></div>
-          <div id="resume" class="card"></div>
-          <div id="cv" class="card"></div>
+          <div class="card" ng-repeat="card in connectCards">
+            <div class="dimmable image">
+              <div class="ui dimmer">
+                <div class="content">
+                  <div class="center">
+                    <a class="ui inverted button" href="{{card.url}}">Connect</a>
+                  </div>
+                </div>
+              </div>
+              <img ng-src="{{card.image}}" alt=":("/>
+            </div>
+            <div class="content">
+              <a class="header" href="{{card.url}}">{{card.name}}</a>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   </body>
 </html>
