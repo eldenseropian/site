@@ -2,10 +2,11 @@ $(document).ready(function() {
     codeCard('#zhift', 'Zhift', 'Schedule your way.', 'November 2014',
       '../public/images/zhift.jpg', 'Learn More', 'Finally, a free and easy online tool for managing work shifts for organizations of any size and shape.',
       'http://zhift-seropian.rhcloud.com', 'https://github.com/zhift-team/zhift');
-    // codeCard('#shirk', 'Shirk', 'A forgiving task manager', 'October 2014',
     codeCard('#shirk', 'Shirk', 'A forgiving task manager.', 'October 2014',
       '../public/images/shirk.jpg', 'Learn More', 'This academic project was implemented by Andre Aboulian, Tricia Divita, and Lily Seropian for 6.170 Software Studio.',
       'http://shirk-seropian.rhcloud.com', 'https://github.com/shirk-team/shirk');
+
+    linkCard('#lorenz', 'https://www.math.auckland.ac.nz/~hinke/crochet/othermans.html', 'The Lorenz Manifold', '../public/images/lorenz.jpg', 'See More');
 
     linkCard('#github', 'http://www.github.com/lilyseropian', 'github.com/lilyseropian', '../public/images/github.jpg', 'Connect');
     linkCard('#linkedin', 'http://www.linkedin.com/in/lilyseropian', 'linkedin.com/in/lilyseropian', '../public/images/linkedin.jpg', 'Connect');
