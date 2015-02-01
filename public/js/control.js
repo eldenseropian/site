@@ -5,6 +5,9 @@ $(document).ready(function() {
     codeCard('#shirk', 'Shirk', 'A forgiving task manager.', 'October 2014',
       '../public/images/shirk.jpg', 'Learn More', 'This academic project was implemented by Andre Aboulian, Tricia Divita, and Lily Seropian for 6.170 Software Studio.',
       'http://shirk-seropian.rhcloud.com', 'https://github.com/shirk-team/shirk');
+    codeCard('#tag', 'Tag', 'Find your way from #start to #end.', 'January 2014',
+      '../public/images/tag.jpg', 'Learn More', 'Hack at Brown project.',
+      'http://tag-seropian.rhcloud.com', 'https://github.com/lilyseropian/tag');
 
     linkCard('#lorenz', 'https://www.math.auckland.ac.nz/~hinke/crochet/othermans.html', 'The Lorenz Manifold', '../public/images/lorenz.jpg', 'See More');
 
