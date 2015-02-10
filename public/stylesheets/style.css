@@ -1,0 +1,15 @@
+.header:only-child {
+    text-align: center;
+}
+
+.ui.menu {
+    margin-bottom: 0;
+}
+
+.basic.segment {
+    margin-top: 0;
+}
+
+.ui.cards>.card>.content.bordered {
+    border-top: 1px solid #EEEEEE;
+}
